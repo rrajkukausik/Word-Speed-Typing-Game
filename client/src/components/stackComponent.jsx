@@ -3,9 +3,12 @@ import { GameContext } from "../context";
 
 const StackComponent = (props) => {
   const { setMultiplier } = useContext(GameContext);
+  const [len, setLen] = useState(0);
   useEffect(() => {
     if (props.stackedWords.length === 7) {
       setMultiplier(1);
+      setLen(props.stackedWords.length - 1)
+      // console.log(len,props.stackedWords.length-1,"just for check")
       props.endGame();
     }
   }, [props.stackedWords]);
@@ -15,9 +18,9 @@ const StackComponent = (props) => {
         return (
           <div
             className={
-              props.stackedWords.length - 1 === index
-                ? "stack-word"
-                : "stack-word-new"
+              index === len
+                ? "stack-word-new"
+                : "stack-word"
             }
           >
             <p>{word.word}</p>

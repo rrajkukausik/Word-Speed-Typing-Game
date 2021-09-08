@@ -41,38 +41,33 @@ const stackWords = [
 //   { word: "tacklings" },
 // ];
 export default function Game() {
-  const [end, setEnd] = useState(false);
-  const [time, setTime] = useState(3000);
   const [stackedWords, setStackedWords] = useState([]);
   const [activeWord, setActiveWord] = useState("");
   const [activeId, setActiveId] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
   const stack = [];
-  const interval = useRef({});
-  const { score, setScore, level, setLevel, setMultiplier, setActive } =
+  const { score, setScore, level, setLevel, multiplier,setMultiplier, setActive } =
     useContext(GameContext);
 
-  useEffect(() => {
-    clearInterval(interval.current.id);
-  }, [end]);
-
   const endGame = () => {
-    setEnd((prevValue) => !prevValue);
     setActive(false);
   };
 
-  const handleGame = () => {
+  const startGame = () => {
     document.getElementById("start-button-id").style.display = "none";
-    document.getElementById('game-container-id').focus();
-    interval.current.id = setInterval(() => {
-      let rng = Math.floor(Math.random() * stackWords.length);
+    document.getElementById("game-container-id").focus();
+    var time = 3000;
+    (function foo() {
+      let seed = Math.floor(Math.random() * stackWords.length);
       let idObj = { id: Date.now() };
-      let wordObj = Object.assign(stackWords[rng], idObj);
+      let wordObj = Object.assign(stackWords[seed], idObj);
       setStackedWords((prevState) => [...prevState, wordObj]);
       setActiveWord(wordObj.word);
       setActiveId(wordObj.id);
       setCurrentInput("");
-    }, time);
+      if (time > 500) time = time - (multiplier*50);
+      setTimeout(foo, time);
+    })();
   };
 
   const onKeyPress = (e) => {
@@ -81,13 +76,12 @@ export default function Game() {
       const newInput = currentInput + key;
       if (activeWord.indexOf(newInput) === 0) {
         if (activeWord === newInput) {
-          removeStackedWords(activeId);
+          removeWordFromStack(activeId);
           clearBeep();
           setScore((prevState) => prevState + 10);
           if (score >= 30 * level) {
             setLevel((prevState) => prevState + 1);
             setMultiplier((prevState) => prevState * 1.5);
-            setTime((prevState) => prevState * 0.5);      
           }
         }
         setCurrentInput(newInput);
@@ -98,7 +92,7 @@ export default function Game() {
     }
   };
 
-  const removeStackedWords = (...args) => {
+  const removeWordFromStack = (...args) => {
     const id = args;
     stack.push(activeId);
     setStackedWords((prevState) => {
@@ -112,14 +106,14 @@ export default function Game() {
   return (
     <div
       className="game-container"
-      id = "game-container-id"
+      id="game-container-id"
       onKeyDown={(e) => {
         onKeyPress(e);
       }}
       tabIndex="0"
     >
       <Score />
-      <button id ="start-button-id" className="start-button" onClick={handleGame}>
+      <button id="start-button-id" className="start-button" onClick={startGame}>
         Play Game ▶
       </button>
       <WordStack stackWords={stackedWords} endGame={endGame} />

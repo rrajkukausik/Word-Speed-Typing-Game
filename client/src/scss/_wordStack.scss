@@ -1,6 +1,6 @@
 .stack-box{
     border: 2px solid white ;
-    height:80px;
+    height:90px;
     margin-top: 25px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.288);
@@ -9,20 +9,21 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .stack-word{
-    border:1px solid white;
+    border:2px solid white;
     padding:3px;
     border-radius:  4px;
-    display: inline-block;
+    display: inline-flex;
     margin:20px;
     margin-left: 10px;
     width: auto;
     top:200px;
-    font-size: 22px;
+    font-size: 32px;
     color: #0b0199;
     background: rgba(255, 255, 255, 0.2);
     opacity: 0.9;
     text-transform: uppercase;
     text-align: center;
+    letter-spacing: 1px;
 }
 .stack-word-new{
     border:1px solid white;
@@ -33,7 +34,7 @@
     margin-left: 10px;
     width: auto;
     top:200px;
-    font-size: 22px;
+    font-size: 32px;
     color: #0b0199;
     background: rgba(243, 14, 14, 0.959);
     opacity: 0.9;

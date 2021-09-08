@@ -222,7 +222,7 @@
 }
 
 .keyboard {
-  margin-top: 4.5em;
+  margin-top: 3.4em;
   width: 100%;
   padding: 10px 0;
 }
@@ -442,7 +442,7 @@
 
 .stack-box {
   border: 2px solid white;
-  height: 80px;
+  height: 90px;
   margin-top: 25px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.288);
@@ -453,20 +453,23 @@
 }
 
 .stack-word {
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 3px;
   border-radius: 4px;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   margin: 20px;
   margin-left: 10px;
   width: auto;
   top: 200px;
-  font-size: 22px;
+  font-size: 32px;
   color: #0b0199;
   background: rgba(255, 255, 255, 0.2);
   opacity: 0.9;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .stack-word-new {
@@ -478,7 +481,7 @@
   margin-left: 10px;
   width: auto;
   top: 200px;
-  font-size: 22px;
+  font-size: 32px;
   color: #0b0199;
   background: rgba(243, 14, 14, 0.959);
   opacity: 0.9;
