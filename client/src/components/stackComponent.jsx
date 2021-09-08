@@ -1,20 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useContext,useState } from "react";
 import { GameContext } from "../context";
 
+//This component maps on the word Array to display words on the word stack.
 const StackComponent = (props) => {
   const { setMultiplier } = useContext(GameContext);
   const [len, setLen] = useState(0);
   useEffect(() => {
-    if (props.stackedWords.length === 7) {
+    if (props.stackWords.length === 7) {
       setMultiplier(1);
-      setLen(props.stackedWords.length - 1)
+      setLen(props.stackWords.length - 1)
       // console.log(len,props.stackedWords.length-1,"just for check")
       props.endGame();
     }
   }, [props.stackedWords]);
   return (
     <div className="stack-box">
-      {props.stackedWords.map((word, index) => {
+      {props.stackWords.map((word, index) => {
         return (
           <div
             className={

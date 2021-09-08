@@ -1,7 +1,7 @@
 import "./App.css";
 import "./scss/Main.css";
 import Instructions from "./components/instructions";
-import HighScoreList from "./components/highScoresList";
+import TopScoreList from "./components/topScoreList";
 import ScoreList from "./components/scoresList";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -38,7 +38,7 @@ function App() {
               {isActive ? <Game /> : <RetryGame />}
             </Route>
             <Route path="/savescore" component={SaveForm}></Route>
-            <Route path="/highscores" component={HighScoreList}></Route>
+            <Route path="/highscores" component={TopScoreList}></Route>
             <Route path="/allscores" component={ScoreList}></Route>
             <Redirect to="/"></Redirect>
           </Switch>

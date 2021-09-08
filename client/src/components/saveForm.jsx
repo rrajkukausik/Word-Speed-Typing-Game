@@ -26,19 +26,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//This component saves the score and level of the user with User's name and email.
 export default function SaveForm() {
   const { score, level } = useContext(GameContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const classes = useStyles();
-
+//This function changes the state of the username.
   const handleUsername = (e) => {
     setName(e.target.value);
   };
-
+//This function changes the state of the email.
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
+
+  //This functions sends post request to the Backend and saves on the database.
   const handleSave = async () => {
     const data = { name, email, score, level };
     await axios
@@ -52,6 +55,8 @@ export default function SaveForm() {
         console.log(err);
       });
   };
+
+  //This function sets innertext of the div to show message after saved in database. 
   const insertSavedText = () => {
     document.getElementById("saved-text").innerHTML = "Your score is saved!!   📩";
   };

@@ -1,27 +1,28 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Score from "../components/scorebar";
 import { Link } from "react-router-dom";
 import { GameContext } from "../context";
-import { GameOverBeep } from "../utils/sounds";
+
+//This component renders the game over page.It has funtionalities like
+//Playing game again, seeing the top scores and leaderboard and also to
+//save the usewr's score to the backend.
 export default function Retry() {
-  const { setScore, setLevel, setMultiplier,setActive } = useContext(GameContext);
-
-  useEffect(() => {
-    GameOverBeep()
-  })
-
-  function handlePlayButton() {
+  const { setScore, setLevel, setMultiplier, setActive } =
+    useContext(GameContext);
+//This function resets all the game data to the previous starting state ,
+// when the user clicks on PLAY AGAIN button.
+  const resetGame = () => {
     setScore(0);
     setLevel(1);
     setMultiplier(1);
     setActive(true);
-  }
+  };
   return (
     <div className="game-container">
       <Score />
       <h1 className="game-over">Game Over !!! 😿 Stack is Full 😢</h1>
       <Link to="/game">
-        <button className="playagain-button" onClick={handlePlayButton}>
+        <button className="playagain-button" onClick={resetGame}>
           Play Again 🔁
         </button>
       </Link>

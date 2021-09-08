@@ -1,45 +1,14 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState,  useContext } from "react";
 import Score from "../components/scorebar";
 import _ from "lodash";
 import Keyboard from "../components/keyboard";
 import WordStack from "../components/wordStack";
 import { GameContext } from "../context";
 import { clearBeep, Beep } from "../utils/sounds";
+import {stackWords} from "../utils/data"
 
-const stackWords = [
-  { word: "SUNO" },
-  { word: "SINGLE" },
-  { word: "DOUBLE" },
-  { word: "GRAND" },
-  { word: "KIRKIT" },
-  { word: "DANCE" },
-  { word: "SONG" },
-  { word: "WALK" },
-  { word: "KICK" },
-];
-// const stackWords = [
-//   { word: "cleannesses" },
-//   { word: "deceivable" },
-//   { word: "enfeebled" },
-//   { word: "circumstantial" },
-//   { word: "clank" },
-//   { word: "rearousing" },
-//   { word: "tomcats" },
-//   { word: "harmfulness" },
-//   { word: "unicolor" },
-//   { word: "multimode" },
-//   { word: "moundbirds" },
-//   { word: "toilsome" },
-//   { word: "exchanged" },
-//   { word: "cattle" },
-//   { word: "epigrapher" },
-//   { word: "untitled" },
-//   { word: "curricles" },
-//   { word: "unicolor" },
-//   { word: "reactions" },
-//   { word: "wildlings" },
-//   { word: "tacklings" },
-// ];
+//This Component Starts the Game and make appear the words one by one.
+//It clears the word on correct type within its time interval.
 export default function Game() {
   const [stackedWords, setStackedWords] = useState([]);
   const [activeWord, setActiveWord] = useState("");
@@ -49,10 +18,13 @@ export default function Game() {
   const { score, setScore, level, setLevel, multiplier,setMultiplier, setActive } =
     useContext(GameContext);
 
+//This function makes the state of isActive false which toggles the route between GAME COMPONENT and RETRTMENU component.
   const endGame = () => {
     setActive(false);
   };
 
+  //This function starts the game and make the words appear in word stack one after another.
+  //The time interval of the word gets decreases when the multiplier gets higher.
   const startGame = () => {
     document.getElementById("start-button-id").style.display = "none";
     document.getElementById("game-container-id").focus();
@@ -69,7 +41,7 @@ export default function Game() {
       setTimeout(foo, time);
     })();
   };
-
+// This function runs on every keyPress checks the input word is same as the appeared word.
   const onKeyPress = (e) => {
     const key = e.key.toUpperCase();
     if (key.match(/[A-Z]/i)) {
@@ -92,6 +64,7 @@ export default function Game() {
     }
   };
 
+  //This function removes the word from the stack when the input word is same as the appeared word on stack are same.
   const removeWordFromStack = (...args) => {
     const id = args;
     stack.push(activeId);

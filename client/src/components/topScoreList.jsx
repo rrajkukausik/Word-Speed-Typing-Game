@@ -37,11 +37,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Api = "http://localhost:4000/api/v1/";
 
+//This Component shows Top Players on the Application.
 const HighScoreList = () => {
   const classes = useStyles();
 
   const [highScore, sethighScore] = useState([]);
-
+  //This function sends GET request to the APi
   useEffect(() => {
     const getList = async () => {
       try {
@@ -57,7 +58,7 @@ const HighScoreList = () => {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   let average = 0;
-
+  // calculation of average
   if (highScore.players) {
     for (let i = 0; i < highScore.players.length; i++) {
       average = average + highScore.players[i].score;
@@ -69,7 +70,7 @@ const HighScoreList = () => {
   return (
     <div className="highscores-container">
       <div className="highscores-box">
-        <h1 className="highscores-header"> 🙌 High Scores 🎉</h1>
+        <h1 className="highscores-header"> 🙌 Top Scores 🎉</h1>
         <div className="statistics">
           <h1>
             Max Level Reached:{" "}

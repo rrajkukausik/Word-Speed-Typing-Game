@@ -453,7 +453,7 @@
 }
 
 .stack-word {
-  border: 2px solid white;
+  border: 2px solid #0307f0;
   padding: 3px;
   border-radius: 4px;
   display: -webkit-inline-box;
@@ -473,7 +473,7 @@
 }
 
 .stack-word-new {
-  border: 1px solid white;
+  border: 2px solid #f14e0e;
   padding: 3px;
   border-radius: 4px;
   display: inline-block;
@@ -483,7 +483,7 @@
   top: 200px;
   font-size: 32px;
   color: #0b0199;
-  background: rgba(243, 14, 14, 0.959);
+  background: rgba(255, 255, 255, 0.2);
   opacity: 0.9;
   text-transform: uppercase;
   text-align: center;

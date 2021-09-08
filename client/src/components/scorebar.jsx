@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GameContext } from "../context";
 
+// This component shows the score at top of the Applicatioon.
 export default function Score() {
   const { score, level, multiplier } = useContext(GameContext);
 

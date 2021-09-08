@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 
+//This component checks keydown and keyUp keystrokes from the user and highlights
+// them in the keyboard component by adding an background to that key
 const KeyboardKey = (props) => {
   const letter = props.data;
 
   const [active, setActive] = useState(false);
-
+//this function checks keyup and keyDown strokes
   const useKeyPress = () => {
     useEffect(() => {
       window.addEventListener("keydown", downHandler);

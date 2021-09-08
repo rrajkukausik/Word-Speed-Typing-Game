@@ -1,13 +1,10 @@
 import React from "react";
 import KeyboardKey from "./keyboardKey";
+import { row_qwerty, row_asdf, row_zxcv } from "../utils/data";
 
+//This component is the layout of the keyboard present in the Game.
+//Here it iterates over 3 arrays to generate a keyboard like layout to generate feedback mechanism functionality.
 const Keyboard = () => {
-  const row_qwerty = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-
-  const row_asdf = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
-
-  const row_zxcv = ["z", "x", "c", "v", "b", "n", "m"];
-
   return (
     <div className="keyboard">
       <div>

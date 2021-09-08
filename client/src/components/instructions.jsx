@@ -1,12 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-export default function Instructions(props) {
-  const setInit = props.setInit;
+import { Link } from "react-router-dom";
 
-  const handleSetInit = () => {
-    return setInit(true);
-  };
-
+//This component is the root page of the Appliation as the game starts from here.
+//It shows all the game instructions to the user and user can proceed to the game by clicking START GAME button.
+export default function Instructions() {
   return (
     <div className="instructions-container">
       <div className="instructions-box">
