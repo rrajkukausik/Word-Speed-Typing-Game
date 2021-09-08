@@ -9,7 +9,6 @@ export default function Score() {
       <h1>Score:{score}</h1>
       <h1>Level: {level}</h1>
       <h1>Multiplier: {multiplier.toFixed(2)}X</h1>
-      {/* {multiplier === 0 ? " " : <h1>Multiplier: {multiplier}</h1>} */}
     </div>
   );
 }

@@ -47,7 +47,6 @@ const ScoreList = () => {
       try {
         const response = await axios.get(Api + "player/all");
         setScore(response.data);
-        // console.log(response.data);
       } catch (error) {
         console.log("error", error);
       }

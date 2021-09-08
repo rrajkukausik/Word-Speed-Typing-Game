@@ -34,20 +34,16 @@ export default function SaveForm() {
 
   const handleUsername = (e) => {
     setName(e.target.value);
-    console.log(name);
   };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    console.log(email);
   };
   const handleSave = async () => {
-    console.log(name, email);
     const data = { name, email, score, level };
     await axios
       .post("http://localhost:4000/api/v1/player/", data)
       .then((res) => {
-        console.log(res);
         if (res.data.success) {
           insertSavedText();
         }

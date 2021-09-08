@@ -8,7 +8,6 @@ export default function Instructions(props) {
   };
 
   return (
-    //     {/* <Play handlePlay={handleSetInit}>Start</Play> */}
     <div className="instructions-container">
       <div className="instructions-box">
         <h1 className="instructions-header"> 🔠 Word Racer 🏃‍♀️</h1>

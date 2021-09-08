@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 
 export default function WordStack(props) {
   useEffect(() => {
-    console.log(props.stackWords.length);
     if (props.stackWords.length === 8) {
       props.endGame();
     }

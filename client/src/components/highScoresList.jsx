@@ -47,7 +47,6 @@ const HighScoreList = () => {
       try {
         const response = await axios.get(Api + "player/");
         sethighScore(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log("error", error);
       }

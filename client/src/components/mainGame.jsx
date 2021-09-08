@@ -4,16 +4,17 @@ import _ from "lodash";
 import Keyboard from "../components/keyboard";
 import WordStack from "../components/wordStack";
 import { GameContext } from "../context";
-// import { useHistory } from 'react-router';
-import { Link } from "react-router-dom";
 
 const stackWords = [
-  { word: "RAJ" },
-  { word: "KANHA" },
-  { word: "AYUSH" },
-  { word: "NIRMAL" },
-  { word: "KIRAN" },
-  { word: "PADMA" },
+  { word: "SUNO" },
+  { word: "SINGLE" },
+  { word: "DOUBLE" },
+  { word: "GRAND" },
+  { word: "KIRKIT" },
+  { word: "DANCE" },
+  { word: "SONG" },
+  { word: "WALK" },
+  { word: "KICK" },
 ];
 // const stackWords = [
 //   { word: "cleannesses" },
@@ -57,11 +58,6 @@ export default function Game() {
   const endGame = () => {
     setEnd((prevValue) => !prevValue);
     setActive(false);
-    // window.location = "/retry";
-    // browserHistory.push('/retry')
-    // const routerHistory = useHistory();
-    // routerHistory.push('/retry');
-    // <Link to="/retry" />
   };
 
   const handleGame = () => {

@@ -10,12 +10,11 @@ import RetryGame from "./components/gameOverMenu";
 import SaveForm from "./components/saveForm";
 import { GameContext } from "./context";
 import { useState } from "react";
-import { browserHistory } from "react-router";
 function App() {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
   const [multiplier, setMultiplier] = useState(1);
-  const [isActive, setActive] = useState(true)
+  const [isActive, setActive] = useState(true);
   return (
     <div className="App">
       <Router>
@@ -28,7 +27,7 @@ function App() {
             level,
             setLevel,
             multiplier,
-            setMultiplier
+            setMultiplier,
           }}
         >
           <Switch>
