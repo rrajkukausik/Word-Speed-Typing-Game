@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { GameContext } from "../context";
 
 const StackComponent = (props) => {
-  const {setMultiplier } = useContext(GameContext);
+  const { setMultiplier } = useContext(GameContext);
   useEffect(() => {
     if (props.stackedWords.length === 7) {
       setMultiplier(1);
@@ -10,11 +10,11 @@ const StackComponent = (props) => {
     }
   }, [props.stackedWords]);
   return (
-    <div>
+    <div className="stack-box">
       {props.stackedWords.map((word) => {
         return (
-          <div className="stack-box">
-            <p className="stack-word">{word.word}</p>
+          <div className="stack-word">
+            <p>{word.word}</p>
           </div>
         );
       })}

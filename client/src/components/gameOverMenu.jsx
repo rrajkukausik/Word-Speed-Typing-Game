@@ -1,9 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Score from "../components/scorebar";
 import { Link } from "react-router-dom";
 import { GameContext } from "../context";
+import { GameOverBeep } from "../utils/sounds";
 export default function Retry() {
   const { setScore, setLevel, setMultiplier,setActive } = useContext(GameContext);
+
+  useEffect(() => {
+    GameOverBeep()
+  })
 
   function handlePlayButton() {
     setScore(0);

@@ -4,6 +4,7 @@ import _ from "lodash";
 import Keyboard from "../components/keyboard";
 import WordStack from "../components/wordStack";
 import { GameContext } from "../context";
+import { clearBeep, Beep } from "../utils/sounds";
 
 const stackWords = [
   { word: "SUNO" },
@@ -48,7 +49,7 @@ export default function Game() {
   const [currentInput, setCurrentInput] = useState("");
   const stack = [];
   const interval = useRef({});
-  const { score, setScore, level, setLevel, setMultiplier ,setActive} =
+  const { score, setScore, level, setLevel, setMultiplier, setActive } =
     useContext(GameContext);
 
   useEffect(() => {
@@ -61,6 +62,8 @@ export default function Game() {
   };
 
   const handleGame = () => {
+    document.getElementById("start-button-id").style.display = "none";
+    document.getElementById('game-container-id').focus();
     interval.current.id = setInterval(() => {
       let rng = Math.floor(Math.random() * stackWords.length);
       let idObj = { id: Date.now() };
@@ -79,15 +82,17 @@ export default function Game() {
       if (activeWord.indexOf(newInput) === 0) {
         if (activeWord === newInput) {
           removeStackedWords(activeId);
+          clearBeep();
           setScore((prevState) => prevState + 10);
           if (score >= 30 * level) {
             setLevel((prevState) => prevState + 1);
             setMultiplier((prevState) => prevState * 1.2);
-            setTime((prevState) => prevState * 0.5);
+            setTime((prevState) => prevState * 0.5);      
           }
         }
         setCurrentInput(newInput);
       } else {
+        Beep();
         setCurrentInput("");
       }
     }
@@ -107,13 +112,14 @@ export default function Game() {
   return (
     <div
       className="game-container"
+      id = "game-container-id"
       onKeyDown={(e) => {
         onKeyPress(e);
       }}
       tabIndex="0"
     >
       <Score />
-      <button className="start-button" onClick={handleGame}>
+      <button id ="start-button-id" className="start-button" onClick={handleGame}>
         Play Game ▶
       </button>
       <WordStack stackWords={stackedWords} endGame={endGame} />
