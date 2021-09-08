@@ -5,7 +5,7 @@
 
 .playagain-button {
     position: absolute;
-    width: 240px;
+    width: 250px;
     height: 46px;
     left: 540px;
     top: 230px;
@@ -14,7 +14,6 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 49px;
-    display: flex;
     align-items: center;
     color: $secondary-color;
     background-color: $primary-color;
@@ -27,7 +26,7 @@
 
   .savescore-button{
     position: absolute;
-    width: 240px;
+    width: 250px;
     height: 46px;
     left: 540px;
     top: 300px;
@@ -36,8 +35,6 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 49px;
-    display: flex;
-    align-items: center;
     color: $secondary-color;
     background-color: $primary-color;
     border-radius: 20px;
@@ -50,7 +47,7 @@
 
   .highscore-button{
     position: absolute;
-    width: 240px;
+    width: 250px;
     height: 46px;
     left: 540px;
     top: 370px;
@@ -59,7 +56,6 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 49px;
-    display: flex;
     align-items: center;
     color: $secondary-color;
     background-color: $primary-color;
@@ -72,7 +68,7 @@
 
   .allscore-button{
     position: absolute;
-    width: 240px;
+    width: 250px;
     height: 46px;
     left: 540px;
     top: 440px;
@@ -81,7 +77,6 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 49px;
-    display: flex;
     align-items: center;
     color: $secondary-color;
     background-color: $primary-color;

@@ -29,10 +29,10 @@ export default function Retry() {
         <button className="savescore-button">Save Score📩</button>
       </Link>
       <Link to="/highscores">
-        <button className="highscore-button">High Scores 🎯</button>
+        <button className="highscore-button">Top Scores 🎯</button>
       </Link>
       <Link to="/allscores">
-        <button className="allscore-button">All Scores 📖</button>
+        <button className="allscore-button">Leaderboard 📖</button>
       </Link>
     </div>
   );

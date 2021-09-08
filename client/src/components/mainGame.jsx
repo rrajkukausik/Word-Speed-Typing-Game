@@ -86,7 +86,7 @@ export default function Game() {
           setScore((prevState) => prevState + 10);
           if (score >= 30 * level) {
             setLevel((prevState) => prevState + 1);
-            setMultiplier((prevState) => prevState * 1.2);
+            setMultiplier((prevState) => prevState * 1.5);
             setTime((prevState) => prevState * 0.5);      
           }
         }

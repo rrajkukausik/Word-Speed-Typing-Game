@@ -11,9 +11,15 @@ const StackComponent = (props) => {
   }, [props.stackedWords]);
   return (
     <div className="stack-box">
-      {props.stackedWords.map((word) => {
+      {props.stackedWords.map((word, index) => {
         return (
-          <div className="stack-word">
+          <div
+            className={
+              props.stackedWords.length - 1 === index
+                ? "stack-word"
+                : "stack-word-new"
+            }
+          >
             <p>{word.word}</p>
           </div>
         );

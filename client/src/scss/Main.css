@@ -265,7 +265,7 @@
 
 .playagain-button {
   position: absolute;
-  width: 240px;
+  width: 250px;
   height: 46px;
   left: 540px;
   top: 230px;
@@ -274,9 +274,6 @@
   font-weight: bold;
   font-size: 32px;
   line-height: 49px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -294,7 +291,7 @@
 
 .savescore-button {
   position: absolute;
-  width: 240px;
+  width: 250px;
   height: 46px;
   left: 540px;
   top: 300px;
@@ -303,12 +300,6 @@
   font-weight: bold;
   font-size: 32px;
   line-height: 49px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: #dbffff;
   background-color: #565dfa;
   border-radius: 20px;
@@ -323,7 +314,7 @@
 
 .highscore-button {
   position: absolute;
-  width: 240px;
+  width: 250px;
   height: 46px;
   left: 540px;
   top: 370px;
@@ -332,9 +323,6 @@
   font-weight: bold;
   font-size: 32px;
   line-height: 49px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -352,7 +340,7 @@
 
 .allscore-button {
   position: absolute;
-  width: 240px;
+  width: 250px;
   height: 46px;
   left: 540px;
   top: 440px;
@@ -361,9 +349,6 @@
   font-weight: bold;
   font-size: 32px;
   line-height: 49px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -479,6 +464,23 @@
   font-size: 22px;
   color: #0b0199;
   background: rgba(255, 255, 255, 0.2);
+  opacity: 0.9;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.stack-word-new {
+  border: 1px solid white;
+  padding: 3px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 20px;
+  margin-left: 10px;
+  width: auto;
+  top: 200px;
+  font-size: 22px;
+  color: #0b0199;
+  background: rgba(243, 14, 14, 0.959);
   opacity: 0.9;
   text-transform: uppercase;
   text-align: center;

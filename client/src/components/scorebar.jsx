@@ -8,7 +8,7 @@ export default function Score() {
     <div className="scorebar">
       <h1>Score:{score}</h1>
       <h1>Level: {level}</h1>
-      <h1>Multiplier: {multiplier.toFixed(2)}X</h1>
+      <h1>Multiplier: {multiplier.toFixed(0)}X</h1>
     </div>
   );
 }
