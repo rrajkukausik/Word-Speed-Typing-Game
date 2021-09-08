@@ -10,15 +10,12 @@ import RetryGame from "./components/gameOverMenu";
 import SaveForm from "./components/saveForm";
 import { GameContext } from "./context";
 import { useState } from "react";
-
+import { browserHistory } from "react-router";
 function App() {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
-  const [isActive, setActive] = useState(true);
-  // const [start, setStart] = useState(false);
-  // const [multiplier, setMultiplier] = useState(1);
-  // const [saved, setSaved] = useState(0);
-  // const [username, setUsername] = useState(null);
+  const [multiplier, setMultiplier] = useState(1);
+  const [isActive, setActive] = useState(true)
   return (
     <div className="App">
       <Router>
@@ -30,17 +27,17 @@ function App() {
             setScore,
             level,
             setLevel,
+            multiplier,
+            setMultiplier
           }}
         >
           <Switch>
             <Route exact path="/" component={Instructions}></Route>
-            {/* <Route path="/game" component={Game}></Route>
-            <Route path="/retry" component={RetryGame}></Route> */}
-
+            {/* <Route exact path="/game" component={Game}></Route>
+            <Route exact path="/retry" component={RetryGame}></Route> */}
             <Route exact path="/game">
               {isActive ? <Game /> : <RetryGame />}
             </Route>
-
             <Route path="/savescore" component={SaveForm}></Route>
             <Route path="/highscores" component={HighScoreList}></Route>
             <Route path="/allscores" component={ScoreList}></Route>
@@ -48,31 +45,6 @@ function App() {
           </Switch>
         </GameContext.Provider>
       </Router>
-      {/* <Instructions /> */}
-      {/* <HighScoreList /> */}
-      {/* <ScoreList /> */}
-      {/* <Game />  */}
-      {/* {<RetryGame/>} */}
-      {/* <SaveForm /> */}
-      {/* <Switch>
-          <Route path="/high-scores">
-            <HighScoreList />
-          </Route>
-          <Route path="/save-score">
-            {score !== 0 ? <SaveForm /> : <Redirect to="/" />}
-          </Route>
-          <Route exact path="/">
-            {start ? (
-              isActive ? (
-                <Game />
-              ) : (
-                <RetryMenu />
-              )
-            ) : (
-              <Instructions setInit={setStart} />
-            )}
-          </Route>
-        </Switch> */}
     </div>
   );
 }

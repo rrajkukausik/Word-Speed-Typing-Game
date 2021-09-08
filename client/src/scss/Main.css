@@ -449,6 +449,12 @@
           transform: scale(1.07, 1.07);
 }
 
+#saved-text {
+  padding-top: 20px;
+  font-family: raleway;
+  font-size: 34px;
+}
+
 .stack-box {
   border: 2px solid white;
   height: 80px;
@@ -468,7 +474,7 @@
   display: inline-block;
   margin: 20px;
   margin-left: 10px;
-  width: 120px;
+  width: auto;
   top: 200px;
   font-size: 22px;
   color: #0b0199;

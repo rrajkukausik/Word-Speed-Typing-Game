@@ -132,7 +132,7 @@ const HighScoreList = () => {
         </Paper>
       </div>
 
-      <Link to="/retry">
+      <Link to="/game">
         <button className="highscores-button"> 👈 Go Back</button>
       </Link>
     </div>

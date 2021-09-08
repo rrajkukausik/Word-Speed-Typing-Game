@@ -1,34 +1,54 @@
-import React, { useState, useEffect, useRef ,useContext} from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import Score from "../components/scorebar";
 import _ from "lodash";
 import Keyboard from "../components/keyboard";
 import WordStack from "../components/wordStack";
-import {GameContext} from "../context"
+import { GameContext } from "../context";
+// import { useHistory } from 'react-router';
+import { Link } from "react-router-dom";
 
 const stackWords = [
-  { word: "KANHA" },
   { word: "RAJ" },
+  { word: "KANHA" },
   { word: "AYUSH" },
   { word: "NIRMAL" },
   { word: "KIRAN" },
   { word: "PADMA" },
 ];
+// const stackWords = [
+//   { word: "cleannesses" },
+//   { word: "deceivable" },
+//   { word: "enfeebled" },
+//   { word: "circumstantial" },
+//   { word: "clank" },
+//   { word: "rearousing" },
+//   { word: "tomcats" },
+//   { word: "harmfulness" },
+//   { word: "unicolor" },
+//   { word: "multimode" },
+//   { word: "moundbirds" },
+//   { word: "toilsome" },
+//   { word: "exchanged" },
+//   { word: "cattle" },
+//   { word: "epigrapher" },
+//   { word: "untitled" },
+//   { word: "curricles" },
+//   { word: "unicolor" },
+//   { word: "reactions" },
+//   { word: "wildlings" },
+//   { word: "tacklings" },
+// ];
 export default function Game() {
-  const [open, setOpen] = useState(false);
   const [end, setEnd] = useState(false);
-  const [start, setStart] = useState(false);
   const [time, setTime] = useState(3000);
   const [stackedWords, setStackedWords] = useState([]);
   const [activeWord, setActiveWord] = useState("");
   const [activeId, setActiveId] = useState(0);
   const [currentInput, setCurrentInput] = useState("");
-  // const [wordCounter, setWordCounter] = useState(0);
   const stack = [];
-  const level = 3;
-  var tempWord = "";
-  let wordCounter = 0;
   const interval = useRef({});
-  const {setActive} = useContext(GameContext);
+  const { score, setScore, level, setLevel, setMultiplier ,setActive} =
+    useContext(GameContext);
 
   useEffect(() => {
     clearInterval(interval.current.id);
@@ -37,6 +57,11 @@ export default function Game() {
   const endGame = () => {
     setEnd((prevValue) => !prevValue);
     setActive(false);
+    // window.location = "/retry";
+    // browserHistory.push('/retry')
+    // const routerHistory = useHistory();
+    // routerHistory.push('/retry');
+    // <Link to="/retry" />
   };
 
   const handleGame = () => {
@@ -55,10 +80,15 @@ export default function Game() {
     const key = e.key.toUpperCase();
     if (key.match(/[A-Z]/i)) {
       const newInput = currentInput + key;
-      console.log(newInput, "ni");
       if (activeWord.indexOf(newInput) === 0) {
         if (activeWord === newInput) {
           removeStackedWords(activeId);
+          setScore((prevState) => prevState + 10);
+          if (score >= 30 * level) {
+            setLevel((prevState) => prevState + 1);
+            setMultiplier((prevState) => prevState * 1.2);
+            setTime((prevState) => prevState * 0.5);
+          }
         }
         setCurrentInput(newInput);
       } else {

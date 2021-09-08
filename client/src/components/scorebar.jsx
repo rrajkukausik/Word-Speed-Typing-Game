@@ -1,23 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
+import { GameContext } from "../context";
 
-export default function Score(props) {
+export default function Score() {
+  const { score, level, multiplier } = useContext(GameContext);
 
-    // const { score, level, multiplier } = useContext(ScoreContext);
-
-    // return (
-    //     <div>
-    //         <h1>Score: {score}</h1>
-    //         <h1>Level: {level}</h1>
-    //         {multiplier === 0 ? " " : <h1>Multiplier: {multiplier}</h1>}
-    //     </div>
-    // )
-
-
-    return (
-        <div className="scorebar">
-            <h1>Score: 0</h1>
-            <h1>Level: 1</h1>
-            <h1>Multiplier: 1</h1>
-        </div>
-    )
+  return (
+    <div className="scorebar">
+      <h1>Score:{score}</h1>
+      <h1>Level: {level}</h1>
+      <h1>Multiplier: {multiplier.toFixed(2)}X</h1>
+      {/* {multiplier === 0 ? " " : <h1>Multiplier: {multiplier}</h1>} */}
+    </div>
+  );
 }

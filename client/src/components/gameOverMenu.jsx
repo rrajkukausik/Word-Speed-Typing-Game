@@ -2,22 +2,24 @@ import React, { useState, useContext } from "react";
 import Score from "../components/scorebar";
 import { Link } from "react-router-dom";
 import { GameContext } from "../context";
-import ResetGame from "./resetGame";
 export default function Retry() {
-  const { setActive } = useContext(GameContext);
+  const { setScore, setLevel, setMultiplier,setActive } = useContext(GameContext);
 
-  function resetGame() {
+  function handlePlayButton() {
+    setScore(0);
+    setLevel(1);
+    setMultiplier(1);
     setActive(true);
-    // setSaved(0);
   }
   return (
     <div className="game-container">
       <Score />
       <h1 className="game-over">Game Over !!! 😿 Stack is Full 😢</h1>
-      {/* <Link to="/game">
-        <button  >Play Again 🔁</button>
-      </Link> */}
-      <ResetGame reset={resetGame} />
+      <Link to="/game">
+        <button className="playagain-button" onClick={handlePlayButton}>
+          Play Again 🔁
+        </button>
+      </Link>
       <Link to="/savescore">
         <button className="savescore-button">Save Score📩</button>
       </Link>

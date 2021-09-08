@@ -30,7 +30,7 @@ module.exports = {
             const playerSaved = await player.save();
             return res.send({ success: true, playerSaved });
           }catch(e){
-            return res.send({ success: false, error: e });
+            return res.send({ success: false,check: true, error: e });
           }
       },
       updateScore: async (req, res) => {

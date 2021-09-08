@@ -3,6 +3,9 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { GameContext } from "../context";
+import { useContext, useState } from "react";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,7 +27,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SaveForm() {
+  const { score, level } = useContext(GameContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const classes = useStyles();
+
+  const handleUsername = (e) => {
+    setName(e.target.value);
+    console.log(name);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  };
+  const handleSave = async () => {
+    console.log(name, email);
+    const data = { name, email, score, level };
+    await axios
+      .post("http://localhost:4000/api/v1/player/", data)
+      .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+          insertSavedText();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const insertSavedText = () => {
+    document.getElementById("saved-text").innerHTML = "Your score is saved!!   📩";
+  };
 
   return (
     <div className="game-container">
@@ -34,6 +68,7 @@ export default function SaveForm() {
           <div>
             <TextField
               className={classes.field}
+              onChange={handleUsername}
               variant="outlined"
               margin="normal"
               required
@@ -47,6 +82,7 @@ export default function SaveForm() {
           <div>
             <TextField
               className={classes.field}
+              onChange={handleEmail}
               variant="outlined"
               margin="normal"
               required
@@ -58,10 +94,13 @@ export default function SaveForm() {
           </div>
         </form>
       </div>
+      <div id="saved-text"></div>
 
-      <button className="savescorefinal-button">Save Score📩</button>
+      <button className="savescorefinal-button" onClick={handleSave}>
+        Save Score📩
+      </button>
 
-      <Link to="/retry">
+      <Link to="/game">
         <button className="backform-button"> Go Back 👈</button>
       </Link>
     </div>

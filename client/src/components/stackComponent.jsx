@@ -1,9 +1,11 @@
 import { useEffect } from "react";
+import { GameContext } from "../context";
 
 const StackComponent = (props) => {
+  const {setMultiplier } = useContext(GameContext);
   useEffect(() => {
-    console.log(props.stackedWords.length);
     if (props.stackedWords.length === 7) {
+      setMultiplier(1);
       props.endGame();
     }
   }, [props.stackedWords]);
