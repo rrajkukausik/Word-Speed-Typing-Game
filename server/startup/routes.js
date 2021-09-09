@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const api = require("../api/index");
+const api = require("../routes/index.route");
 
 module.exports = function (app) {
   app.use(cors());

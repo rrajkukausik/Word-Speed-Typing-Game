@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const { Player } = require("../../../models/players");
+const { Player } = require("../models/players");
 
 module.exports = {
     getAllPlayers: async (req, res) => {

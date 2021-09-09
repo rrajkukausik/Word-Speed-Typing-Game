@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Api = "http://localhost:4000/api/v1/";
+const Api = "http://localhost:4000/api/";
 
 //This Component shows Top Players on the Application.
 const HighScoreList = () => {
