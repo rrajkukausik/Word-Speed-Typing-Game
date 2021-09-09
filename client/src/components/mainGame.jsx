@@ -4,7 +4,7 @@ import _ from "lodash";
 import Keyboard from "../components/keyboard";
 import WordStack from "../components/wordStack";
 import { GameContext } from "../context";
-import { clearBeep, Beep } from "../utils/sounds";
+import { clearBeep, Beep ,GameOverBeep} from "../utils/sounds";
 import {stackWords} from "../utils/data"
 
 //This Component Starts the Game and make appear the words one by one.
@@ -19,7 +19,9 @@ export default function Game() {
     useContext(GameContext);
 
 //This function makes the state of isActive false which toggles the route between GAME COMPONENT and RETRTMENU component.
+//And Beeps on game over.
   const endGame = () => {
+    GameOverBeep();
     setActive(false);
   };
 

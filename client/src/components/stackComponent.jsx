@@ -6,10 +6,9 @@ const StackComponent = (props) => {
   const { setMultiplier } = useContext(GameContext);
   const [len, setLen] = useState(0);
   useEffect(() => {
-    if (props.stackWords.length === 7) {
+    if (props.stackWords.length === 8) {
       setMultiplier(1);
       setLen(props.stackWords.length - 1)
-      // console.log(len,props.stackedWords.length-1,"just for check")
       props.endGame();
     }
   }, [props.stackedWords]);
